@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from core.config import load_settings
+from core.config import Settings, load_settings
 from core.utils import now_utc, write_csv, write_dataframe_json
 from evaluation.metrics import evaluate_pipeline
 from evaluation.testset import build_test_set
@@ -11,9 +11,8 @@ from observability.reporting import generate_phase1_report
 from retrieval.index import LocalEmbeddingIndex
 
 
-def main() -> None:
-    """Run the reproducible baseline pipeline and write all phase-one artifacts."""
-    settings = load_settings()
+def run_phase1_pipeline(settings: Settings) -> dict[str, object]:
+    """Run ingest → clean → index → test set → evaluation → quality/reporting."""
     run_time = now_utc()
 
     if settings.refresh_source or not settings.paths.raw_records_json.exists():
@@ -67,3 +66,15 @@ def main() -> None:
         f"retrieval_hit_rate={evaluation.summary['retrieval_hit_rate']:.3f}, "
         f"mean_token_f1={evaluation.summary['mean_token_f1']:.3f}"
     )
+    return {
+        "records": len(clean_df),
+        "metrics": evaluation.summary,
+        "quality": quality,
+        "freshness": freshness,
+        "report_path": settings.paths.baseline_report,
+    }
+
+
+def main() -> None:
+    """CLI entrypoint for the baseline pipeline."""
+    run_phase1_pipeline(load_settings())
