@@ -1,8 +1,8 @@
 # Danh Sách Thành Viên & Báo Cáo Phân Công Nhóm
 
-- **Tên Nhóm:** `[Điền tên nhóm]`
+- **Tên Nhóm:** `LaoGaKho`
 - **Mã Nhóm / Lớp:** `K4-L3-DAY10`
-- **Tên Repository Nộp Bài:** `K4-L3-DAY10-TenNhom-DataPipeline`
+- **Tên Repository Nộp Bài:** `K4-L3B-DAY10-LaoGaKho-DataPipelineDataObservability`
 
 ---
 
@@ -10,10 +10,10 @@
 
 | STT | Họ và tên | MSSV | Email | Vai trò & Phân công công việc | Báo cáo cá nhân |
 |---:|---|---|---|---|---|
-| 1 | | | | Trưởng nhóm / Pipeline Integrator (`core/`, `phase1.py`, `corruption_flow.py`) | `report/<MSSV1>_HoTen.md` |
-| 2 | | | | Data Foundation & Recovery (`crossref.py`, `cleaning.py`, raw data) | `report/<MSSV2>_HoTen.md` |
-| 3 | | | | RAG & Vector Index (`retrieval/index.py`, `embeddings.py`, ChromaDB) | `report/<MSSV3>_HoTen.md` |
-| 4 | | | | Observability & Evaluation (`quality.py` GX 1.x, `testset.py`, reporting) | `report/<MSSV4>_HoTen.md` |
+| 1 | Nguyễn Văn Xuân Lộc | 2A202602870 | | Trưởng nhóm / Pipeline Integrator (`core/`, `phase1.py`, `corruption_flow.py`) | `report/2A202602870_NguyenVanXuanLoc.md` |
+| 2 | Bùi Hải Nam | 2A202602636 | | Data Foundation & Recovery (`crossref.py`, `cleaning.py`, raw data) | `report/2A202602636_BuiHaiNam.md` |
+| 3 | Nguyễn Xuân Thành | 2A202602666 | | Observability & Reporting (`src/observability/quality.py`, `reporting.py`, `diff.py`) | `report/individual_report_3.md` |
+| 4 | Lê Đức Hùng | 2A202602849 | | Retrieval & Evaluation (`src/retrieval/`, `src/evaluation/`) | `report/individual_report_4.md` |
 
 *(Nếu nhóm có 3 hoặc 5-6 thành viên, xem bảng phân công chi tiết theo vai trò trong file `CHECKPOINTS.md`)*.
 
@@ -21,7 +21,7 @@
 
 ## # Cá nhân
 
-### ## HoVaTen1-MSSV1
+### ## Nguyễn Văn Xuân Lộc - 2A202602870
 - **Vai trò:** Trưởng nhóm & Điều phối Pipeline.
 - **Công việc chi tiết đã hoàn thành:**
   - Thiết lập cấu hình hệ thống `core/config.py` và đường dẫn artifacts `core/utils.py`.
@@ -30,7 +30,7 @@
 - **Điều học được / Đóng góp chính:**
   - Hiểu sâu sắc về thiết kế Idempotent Pipeline và quản lý trạng thái luồng dữ liệu đa tầng.
 
-### ## HoVaTen2-MSSV2
+### ## Bùi Hải Nam - 2A202602636
 - **Vai trò:** Phụ trách Ingestion, Làm sạch & Phục hồi dữ liệu.
 - **Công việc chi tiết đã hoàn thành:**
   - Xây dựng module thu thập Crossref API với cơ chế Fallback offline trong `src/ingestion/crossref.py`.
@@ -39,20 +39,14 @@
 - **Điều học được / Đóng góp chính:**
   - Kỹ thuật truy vết nguồn gốc dữ liệu (Data Lineage) và bảo toàn raw snapshot trước khi biến đổi.
 
-### ## HoVaTen3-MSSV3
-- **Vai trò:** Phụ trách RAG, Vector Database & Embedding.
-- **Công việc chi tiết đã hoàn thành:**
-  - Quản lý mô hình embedding `sentence-transformers/all-MiniLM-L6-v2`.
-  - Nạp và quản lý 3 collection riêng biệt trong ChromaDB (`papers-baseline`, `papers-corrupted`, `papers-repaired`).
-  - Xây dựng QA Agent truy vấn ngữ cảnh chính xác theo tài liệu.
-- **Điều học được / Đóng góp chính:**
-  - Cách cô lập các không gian vector để so sánh khách quan giữa dữ liệu sạch và dữ liệu bị lỗi.
+### ## Nguyễn Xuân Thành - 2A202602666
+- **Vai trò:** Observability & Reporting.
+- **Phạm vi:** `src/observability/quality.py`, `src/observability/reporting.py`, `src/observability/diff.py`.
+- **Đầu ra:** Kiểm tra Great Expectations và freshness, so sánh chất lượng giữa các stage, tạo báo cáo Markdown khớp artifacts.
+- **Trạng thái:** Đã phân công; cập nhật kết quả thực hiện và commit sau khi hoàn tất.
 
-### ## HoVaTen4-MSSV4
-- **Vai trò:** Phụ trách Data Observability & Benchmark Evaluation.
-- **Công việc chi tiết đã hoàn thành:**
-  - Thiết lập Quality Gate theo chuẩn mới **Great Expectations 1.x** và giám sát Freshness SLA trong `src/observability/quality.py`.
-  - Xây dựng bộ câu hỏi đánh giá chuẩn trong `src/evaluation/testset.py`.
-  - Đo lường và xuất bảng đối chiếu 3 trạng thái vào `data/reports/corruption_report.md`.
-- **Điều học được / Đóng góp chính:**
-  - Cách thiết lập hệ thống cảnh báo sớm chặn đứng hiện tượng Silent Failure trước khi dữ liệu vào serving layer.
+### ## Lê Đức Hùng - 2A202602849
+- **Vai trò:** Retrieval & Evaluation.
+- **Phạm vi:** `src/retrieval/` và `src/evaluation/` (index, QA, test set, metrics).
+- **Đầu ra:** Kiểm tra luồng truy xuất và trả lời, căn chỉnh test set/ground truth với DOI trong index, tạo metrics baseline/corrupted/repaired có thể diễn giải.
+- **Trạng thái:** Đã phân công; cập nhật kết quả thực hiện và commit sau khi hoàn tất.
