@@ -7,27 +7,34 @@ import re
 from typing import Any, Iterable
 
 
-def ensure_parent(path: Path) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
+def _as_path(path) -> Path:
+    return path if isinstance(path, Path) else Path(path)
 
 
-def write_json(path: Path, payload: Any) -> None:
-    ensure_parent(path)
-    path.write_text(json.dumps(payload, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
+def ensure_parent(path) -> None:
+    _as_path(path).parent.mkdir(parents=True, exist_ok=True)
 
 
-def read_json(path: Path) -> Any:
-    return json.loads(path.read_text(encoding="utf-8"))
+def write_json(path, payload: Any) -> None:
+    p = _as_path(path)
+    ensure_parent(p)
+    p.write_text(json.dumps(payload, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
 
 
-def write_csv(df, path: Path) -> None:
-    ensure_parent(path)
-    df.to_csv(path, index=False)
+def read_json(path) -> Any:
+    return json.loads(_as_path(path).read_text(encoding="utf-8"))
 
 
-def write_text(path: Path, text: str) -> None:
-    ensure_parent(path)
-    path.write_text(text, encoding="utf-8")
+def write_csv(df, path) -> None:
+    p = _as_path(path)
+    ensure_parent(p)
+    df.to_csv(p, index=False)
+
+
+def write_text(path, text: str) -> None:
+    p = _as_path(path)
+    ensure_parent(p)
+    p.write_text(text, encoding="utf-8")
 
 
 def now_utc() -> datetime:

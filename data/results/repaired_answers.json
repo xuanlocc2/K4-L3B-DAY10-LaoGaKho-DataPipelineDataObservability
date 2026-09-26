@@ -1,0 +1,292 @@
+[
+  {
+    "id": "q001",
+    "question_type": "summary",
+    "question": "What is the main contribution or focus of the paper titled 'Paper 0'?",
+    "ground_truth": "Summary 0Summary 0Summary 0Summary 0Summary 0",
+    "ground_truth_doc_ids": [
+      "10.1234/test.0"
+    ],
+    "answer": "An extended empirical study on mbedding quality checks directly into data pipelines enables fail-closed governance.",
+    "retrieved_doc_ids": [
+      "10.1145/3637528.3671822",
+      "10.1145/3637528.3671810",
+      "10.1145/3637528.3671816",
+      "10.1145/3637528.3671804"
+    ],
+    "retrieved_contexts": [
+      "Title: Advanced Perspectives on Automated Data Quality Profiling with Great Expectations in CI/CD\n\nSummary: An extended empirical study on mbedding quality checks directly into data pipelines enables fail-closed governance. We show how Great Expectations suites catch schema drifts and null fields before documents reach the embedding model Further analysis on scaling parameters.\n\nAuthors: Son Nguyen, Thuy Doan\n\nCategories: Data Quality, DevOps\n\nPublished: 2026-06-10",
+      "Title: Automated Data Quality Profiling with Great Expectations in CI/CD\n\nSummary: Embedding quality checks directly into data pipelines enables fail-closed governance. We show how Great Expectations suites catch schema drifts and null fields before documents reach the embedding model.\n\nAuthors: Son Nguyen, Thuy Doan\n\nCategories: Data Quality, DevOps\n\nPublished: 2026-06-08",
+      "Title: Advanced Perspectives on Freshness SLAs for Real-Time LLM Knowledge Augmentation\n\nSummary: An extended empirical study on e define freshness service-level agreements (SLAs) for temporal document ingestion. By tracking document age and update cadence, our orchestrator dynamically prioritizes recrawling high-churn technical corpora Further analysis on scaling parameters.\n\nAuthors: Bao Do, Linh Ngo\n\nCategories: Data Management, Artificial Intelligence\n\nPublished: 2026-06-04",
+      "Title: Freshness SLAs for Real-Time LLM Knowledge Augmentation\n\nSummary: We define freshness service-level agreements (SLAs) for temporal document ingestion. By tracking document age and update cadence, our orchestrator dynamically prioritizes recrawling high-churn technical corpora.\n\nAuthors: Bao Do, Linh Ngo\n\nCategories: Data Management, Artificial Intelligence\n\nPublished: 2026-07-05"
+    ],
+    "retrieval_hit": false,
+    "token_f1": 0.0,
+    "judge": {
+      "score": 1,
+      "correct": false,
+      "reasoning": "The reference answer is a placeholder string ('Summary 0...'), indicating that the correct answer is not provided or is undefined in this context. The model answer provides a specific,"
+    }
+  },
+  {
+    "id": "q002",
+    "question_type": "summary",
+    "question": "What is the main contribution or focus of the paper titled 'Paper 1'?",
+    "ground_truth": "Summary 1Summary 1Summary 1Summary 1Summary 1",
+    "ground_truth_doc_ids": [
+      "10.1234/test.1"
+    ],
+    "answer": "An extended empirical study on ierarchical and semantic boundary chunking preserves code block contexts and markdown headings.",
+    "retrieved_doc_ids": [
+      "10.1145/3637528.3671821",
+      "10.1145/3637528.3671809",
+      "10.1145/3637528.3671816",
+      "10.1145/3637528.3671808"
+    ],
+    "retrieved_contexts": [
+      "Title: Advanced Perspectives on Chunking Strategies for Technical Documentation Retrieval\n\nSummary: An extended empirical study on ierarchical and semantic boundary chunking preserves code block contexts and markdown headings. Our benchmark demonstrates superior top-1 recall compared to fixed character length sliding windows Further analysis on scaling parameters.\n\nAuthors: Long Trinh, Ha Chu\n\nCategories: Information Retrieval, Natural Language Processing\n\nPublished: 2026-06-09",
+      "Title: Chunking Strategies for Technical Documentation Retrieval\n\nSummary: Hierarchical and semantic boundary chunking preserves code block contexts and markdown headings. Our benchmark demonstrates superior top-1 recall compared to fixed character length sliding windows.\n\nAuthors: Long Trinh, Ha Chu\n\nCategories: Information Retrieval, Natural Language Processing\n\nPublished: 2026-04-30",
+      "Title: Advanced Perspectives on Freshness SLAs for Real-Time LLM Knowledge Augmentation\n\nSummary: An extended empirical study on e define freshness service-level agreements (SLAs) for temporal document ingestion. By tracking document age and update cadence, our orchestrator dynamically prioritizes recrawling high-churn technical corpora Further analysis on scaling parameters.\n\nAuthors: Bao Do, Linh Ngo\n\nCategories: Data Management, Artificial Intelligence\n\nPublished: 2026-06-04",
+      "Title: Multi-Agent Consensus for High-Stakes Fact Verification\n\nSummary: A single LLM is susceptible to confirmation bias when evaluating retrieved evidence. We demonstrate a multi-agent debate architecture where specialized verifier agents critique and corroborate citations.\n\nAuthors: Phong Vu, Ngan Hoang\n\nCategories: Multi-Agent Systems, Artificial Intelligence\n\nPublished: 2026-07-19"
+    ],
+    "retrieval_hit": false,
+    "token_f1": 0.0,
+    "judge": {
+      "score": 1,
+      "correct": false,
+      "reasoning": "The model answer provides a specific, detailed description of a technical paper (likely 'Hierarchical and Semantic Boundary Chunking'), whereas the reference answer is a placeholder ('"
+    }
+  },
+  {
+    "id": "q003",
+    "question_type": "summary",
+    "question": "What is the main contribution or focus of the paper titled 'Paper 2'?",
+    "ground_truth": "Summary 2Summary 2Summary 2Summary 2Summary 2",
+    "ground_truth_doc_ids": [
+      "10.1234/test.2"
+    ],
+    "answer": "A single LLM is susceptible to confirmation bias when evaluating retrieved evidence.",
+    "retrieved_doc_ids": [
+      "10.1145/3637528.3671808",
+      "10.1145/3637528.3671821",
+      "10.1145/3637528.3671809",
+      "10.1145/3637528.3671816"
+    ],
+    "retrieved_contexts": [
+      "Title: Multi-Agent Consensus for High-Stakes Fact Verification\n\nSummary: A single LLM is susceptible to confirmation bias when evaluating retrieved evidence. We demonstrate a multi-agent debate architecture where specialized verifier agents critique and corroborate citations.\n\nAuthors: Phong Vu, Ngan Hoang\n\nCategories: Multi-Agent Systems, Artificial Intelligence\n\nPublished: 2026-07-19",
+      "Title: Advanced Perspectives on Chunking Strategies for Technical Documentation Retrieval\n\nSummary: An extended empirical study on ierarchical and semantic boundary chunking preserves code block contexts and markdown headings. Our benchmark demonstrates superior top-1 recall compared to fixed character length sliding windows Further analysis on scaling parameters.\n\nAuthors: Long Trinh, Ha Chu\n\nCategories: Information Retrieval, Natural Language Processing\n\nPublished: 2026-06-09",
+      "Title: Chunking Strategies for Technical Documentation Retrieval\n\nSummary: Hierarchical and semantic boundary chunking preserves code block contexts and markdown headings. Our benchmark demonstrates superior top-1 recall compared to fixed character length sliding windows.\n\nAuthors: Long Trinh, Ha Chu\n\nCategories: Information Retrieval, Natural Language Processing\n\nPublished: 2026-04-30",
+      "Title: Advanced Perspectives on Freshness SLAs for Real-Time LLM Knowledge Augmentation\n\nSummary: An extended empirical study on e define freshness service-level agreements (SLAs) for temporal document ingestion. By tracking document age and update cadence, our orchestrator dynamically prioritizes recrawling high-churn technical corpora Further analysis on scaling parameters.\n\nAuthors: Bao Do, Linh Ngo\n\nCategories: Data Management, Artificial Intelligence\n\nPublished: 2026-06-04"
+    ],
+    "retrieval_hit": false,
+    "token_f1": 0.0,
+    "judge": {
+      "score": 1,
+      "correct": false,
+      "reasoning": "The reference answer is a placeholder string ('Summary 2...'), which does not provide a specific factual claim to verify against. The model answer provides a specific technical claim. "
+    }
+  },
+  {
+    "id": "q004",
+    "question_type": "authors",
+    "question": "Who are the authors of the paper titled 'Paper 0'?",
+    "ground_truth": "Author A, Author B",
+    "ground_truth_doc_ids": [
+      "10.1234/test.0"
+    ],
+    "answer": "An extended empirical study on mbedding quality checks directly into data pipelines enables fail-closed governance.",
+    "retrieved_doc_ids": [
+      "10.1145/3637528.3671822",
+      "10.1145/3637528.3671810",
+      "10.1145/3637528.3671808",
+      "10.1145/3637528.3671804"
+    ],
+    "retrieved_contexts": [
+      "Title: Advanced Perspectives on Automated Data Quality Profiling with Great Expectations in CI/CD\n\nSummary: An extended empirical study on mbedding quality checks directly into data pipelines enables fail-closed governance. We show how Great Expectations suites catch schema drifts and null fields before documents reach the embedding model Further analysis on scaling parameters.\n\nAuthors: Son Nguyen, Thuy Doan\n\nCategories: Data Quality, DevOps\n\nPublished: 2026-06-10",
+      "Title: Automated Data Quality Profiling with Great Expectations in CI/CD\n\nSummary: Embedding quality checks directly into data pipelines enables fail-closed governance. We show how Great Expectations suites catch schema drifts and null fields before documents reach the embedding model.\n\nAuthors: Son Nguyen, Thuy Doan\n\nCategories: Data Quality, DevOps\n\nPublished: 2026-06-08",
+      "Title: Multi-Agent Consensus for High-Stakes Fact Verification\n\nSummary: A single LLM is susceptible to confirmation bias when evaluating retrieved evidence. We demonstrate a multi-agent debate architecture where specialized verifier agents critique and corroborate citations.\n\nAuthors: Phong Vu, Ngan Hoang\n\nCategories: Multi-Agent Systems, Artificial Intelligence\n\nPublished: 2026-07-19",
+      "Title: Freshness SLAs for Real-Time LLM Knowledge Augmentation\n\nSummary: We define freshness service-level agreements (SLAs) for temporal document ingestion. By tracking document age and update cadence, our orchestrator dynamically prioritizes recrawling high-churn technical corpora.\n\nAuthors: Bao Do, Linh Ngo\n\nCategories: Data Management, Artificial Intelligence\n\nPublished: 2026-07-05"
+    ],
+    "retrieval_hit": false,
+    "token_f1": 0.0,
+    "judge": {
+      "score": 1,
+      "correct": false,
+      "reasoning": "The model answer is completely irrelevant to the question. It discusses data pipelines and governance instead of identifying the authors of the paper. The reference answer clearly asks"
+    }
+  },
+  {
+    "id": "q005",
+    "question_type": "authors",
+    "question": "Who are the authors of the paper titled 'Paper 1'?",
+    "ground_truth": "Author A, Author B",
+    "ground_truth_doc_ids": [
+      "10.1234/test.1"
+    ],
+    "answer": "A single LLM is susceptible to confirmation bias when evaluating retrieved evidence.",
+    "retrieved_doc_ids": [
+      "10.1145/3637528.3671808",
+      "10.1145/3637528.3671809",
+      "10.1145/3637528.3671821",
+      "10.1145/3637528.3671820"
+    ],
+    "retrieved_contexts": [
+      "Title: Multi-Agent Consensus for High-Stakes Fact Verification\n\nSummary: A single LLM is susceptible to confirmation bias when evaluating retrieved evidence. We demonstrate a multi-agent debate architecture where specialized verifier agents critique and corroborate citations.\n\nAuthors: Phong Vu, Ngan Hoang\n\nCategories: Multi-Agent Systems, Artificial Intelligence\n\nPublished: 2026-07-19",
+      "Title: Chunking Strategies for Technical Documentation Retrieval\n\nSummary: Hierarchical and semantic boundary chunking preserves code block contexts and markdown headings. Our benchmark demonstrates superior top-1 recall compared to fixed character length sliding windows.\n\nAuthors: Long Trinh, Ha Chu\n\nCategories: Information Retrieval, Natural Language Processing\n\nPublished: 2026-04-30",
+      "Title: Advanced Perspectives on Chunking Strategies for Technical Documentation Retrieval\n\nSummary: An extended empirical study on ierarchical and semantic boundary chunking preserves code block contexts and markdown headings. Our benchmark demonstrates superior top-1 recall compared to fixed character length sliding windows Further analysis on scaling parameters.\n\nAuthors: Long Trinh, Ha Chu\n\nCategories: Information Retrieval, Natural Language Processing\n\nPublished: 2026-06-09",
+      "Title: Advanced Perspectives on Multi-Agent Consensus for High-Stakes Fact Verification\n\nSummary: An extended empirical study on single LLM is susceptible to confirmation bias when evaluating retrieved evidence. We demonstrate a multi-agent debate architecture where specialized verifier agents critique and corroborate citations Further analysis on scaling parameters.\n\nAuthors: Phong Vu, Ngan Hoang\n\nCategories: Multi-Agent Systems, Artificial Intelligence\n\nPublished: 2026-06-08"
+    ],
+    "retrieval_hit": false,
+    "token_f1": 0.0,
+    "judge": {
+      "score": 1,
+      "correct": false,
+      "reasoning": "The model answer is completely irrelevant to the question and does not provide the authors of the paper as required by the reference answer."
+    }
+  },
+  {
+    "id": "q006",
+    "question_type": "authors",
+    "question": "Who are the authors of the paper titled 'Paper 2'?",
+    "ground_truth": "Author A, Author B",
+    "ground_truth_doc_ids": [
+      "10.1234/test.2"
+    ],
+    "answer": "A single LLM is susceptible to confirmation bias when evaluating retrieved evidence.",
+    "retrieved_doc_ids": [
+      "10.1145/3637528.3671808",
+      "10.1145/3637528.3671810",
+      "10.1145/3637528.3671820",
+      "10.1145/3637528.3671822"
+    ],
+    "retrieved_contexts": [
+      "Title: Multi-Agent Consensus for High-Stakes Fact Verification\n\nSummary: A single LLM is susceptible to confirmation bias when evaluating retrieved evidence. We demonstrate a multi-agent debate architecture where specialized verifier agents critique and corroborate citations.\n\nAuthors: Phong Vu, Ngan Hoang\n\nCategories: Multi-Agent Systems, Artificial Intelligence\n\nPublished: 2026-07-19",
+      "Title: Automated Data Quality Profiling with Great Expectations in CI/CD\n\nSummary: Embedding quality checks directly into data pipelines enables fail-closed governance. We show how Great Expectations suites catch schema drifts and null fields before documents reach the embedding model.\n\nAuthors: Son Nguyen, Thuy Doan\n\nCategories: Data Quality, DevOps\n\nPublished: 2026-06-08",
+      "Title: Advanced Perspectives on Multi-Agent Consensus for High-Stakes Fact Verification\n\nSummary: An extended empirical study on single LLM is susceptible to confirmation bias when evaluating retrieved evidence. We demonstrate a multi-agent debate architecture where specialized verifier agents critique and corroborate citations Further analysis on scaling parameters.\n\nAuthors: Phong Vu, Ngan Hoang\n\nCategories: Multi-Agent Systems, Artificial Intelligence\n\nPublished: 2026-06-08",
+      "Title: Advanced Perspectives on Automated Data Quality Profiling with Great Expectations in CI/CD\n\nSummary: An extended empirical study on mbedding quality checks directly into data pipelines enables fail-closed governance. We show how Great Expectations suites catch schema drifts and null fields before documents reach the embedding model Further analysis on scaling parameters.\n\nAuthors: Son Nguyen, Thuy Doan\n\nCategories: Data Quality, DevOps\n\nPublished: 2026-06-10"
+    ],
+    "retrieval_hit": false,
+    "token_f1": 0.0,
+    "judge": {
+      "score": 1,
+      "correct": false,
+      "reasoning": "The model answer is completely irrelevant to the question and does not provide the authors of the paper as required by the reference answer."
+    }
+  },
+  {
+    "id": "q007",
+    "question_type": "date",
+    "question": "When was the paper titled 'Paper 0' published?",
+    "ground_truth": "2024-01-15",
+    "ground_truth_doc_ids": [
+      "10.1234/test.0"
+    ],
+    "answer": "2026-06-10",
+    "retrieved_doc_ids": [
+      "10.1145/3637528.3671822",
+      "10.1145/3637528.3671810",
+      "10.1145/3637528.3671816",
+      "10.1145/3637528.3671804"
+    ],
+    "retrieved_contexts": [
+      "Title: Advanced Perspectives on Automated Data Quality Profiling with Great Expectations in CI/CD\n\nSummary: An extended empirical study on mbedding quality checks directly into data pipelines enables fail-closed governance. We show how Great Expectations suites catch schema drifts and null fields before documents reach the embedding model Further analysis on scaling parameters.\n\nAuthors: Son Nguyen, Thuy Doan\n\nCategories: Data Quality, DevOps\n\nPublished: 2026-06-10",
+      "Title: Automated Data Quality Profiling with Great Expectations in CI/CD\n\nSummary: Embedding quality checks directly into data pipelines enables fail-closed governance. We show how Great Expectations suites catch schema drifts and null fields before documents reach the embedding model.\n\nAuthors: Son Nguyen, Thuy Doan\n\nCategories: Data Quality, DevOps\n\nPublished: 2026-06-08",
+      "Title: Advanced Perspectives on Freshness SLAs for Real-Time LLM Knowledge Augmentation\n\nSummary: An extended empirical study on e define freshness service-level agreements (SLAs) for temporal document ingestion. By tracking document age and update cadence, our orchestrator dynamically prioritizes recrawling high-churn technical corpora Further analysis on scaling parameters.\n\nAuthors: Bao Do, Linh Ngo\n\nCategories: Data Management, Artificial Intelligence\n\nPublished: 2026-06-04",
+      "Title: Freshness SLAs for Real-Time LLM Knowledge Augmentation\n\nSummary: We define freshness service-level agreements (SLAs) for temporal document ingestion. By tracking document age and update cadence, our orchestrator dynamically prioritizes recrawling high-churn technical corpora.\n\nAuthors: Bao Do, Linh Ngo\n\nCategories: Data Management, Artificial Intelligence\n\nPublished: 2026-07-05"
+    ],
+    "retrieval_hit": false,
+    "token_f1": 0.0,
+    "judge": {
+      "score": 1,
+      "correct": false,
+      "reasoning": "The model answer (2026-06-10) does not match the reference answer (2024-01-15). The dates are completely different, making the answer factually incorrect."
+    }
+  },
+  {
+    "id": "q008",
+    "question_type": "date",
+    "question": "When was the paper titled 'Paper 1' published?",
+    "ground_truth": "2024-01-15",
+    "ground_truth_doc_ids": [
+      "10.1234/test.1"
+    ],
+    "answer": "2026-06-04",
+    "retrieved_doc_ids": [
+      "10.1145/3637528.3671816",
+      "10.1145/3637528.3671804",
+      "10.1145/3637528.3671821",
+      "10.1145/3637528.3671809"
+    ],
+    "retrieved_contexts": [
+      "Title: Advanced Perspectives on Freshness SLAs for Real-Time LLM Knowledge Augmentation\n\nSummary: An extended empirical study on e define freshness service-level agreements (SLAs) for temporal document ingestion. By tracking document age and update cadence, our orchestrator dynamically prioritizes recrawling high-churn technical corpora Further analysis on scaling parameters.\n\nAuthors: Bao Do, Linh Ngo\n\nCategories: Data Management, Artificial Intelligence\n\nPublished: 2026-06-04",
+      "Title: Freshness SLAs for Real-Time LLM Knowledge Augmentation\n\nSummary: We define freshness service-level agreements (SLAs) for temporal document ingestion. By tracking document age and update cadence, our orchestrator dynamically prioritizes recrawling high-churn technical corpora.\n\nAuthors: Bao Do, Linh Ngo\n\nCategories: Data Management, Artificial Intelligence\n\nPublished: 2026-07-05",
+      "Title: Advanced Perspectives on Chunking Strategies for Technical Documentation Retrieval\n\nSummary: An extended empirical study on ierarchical and semantic boundary chunking preserves code block contexts and markdown headings. Our benchmark demonstrates superior top-1 recall compared to fixed character length sliding windows Further analysis on scaling parameters.\n\nAuthors: Long Trinh, Ha Chu\n\nCategories: Information Retrieval, Natural Language Processing\n\nPublished: 2026-06-09",
+      "Title: Chunking Strategies for Technical Documentation Retrieval\n\nSummary: Hierarchical and semantic boundary chunking preserves code block contexts and markdown headings. Our benchmark demonstrates superior top-1 recall compared to fixed character length sliding windows.\n\nAuthors: Long Trinh, Ha Chu\n\nCategories: Information Retrieval, Natural Language Processing\n\nPublished: 2026-04-30"
+    ],
+    "retrieval_hit": false,
+    "token_f1": 0.0,
+    "judge": {
+      "score": 1,
+      "correct": false,
+      "reasoning": "The model answer (2026-06-04) does not match the reference answer (2024-01-15). The dates are completely different, making the answer factually incorrect."
+    }
+  },
+  {
+    "id": "q009",
+    "question_type": "categories",
+    "question": "What are the research categories or domains of the paper titled 'Paper 0'?",
+    "ground_truth": "AI, ML",
+    "ground_truth_doc_ids": [
+      "10.1234/test.0"
+    ],
+    "answer": "An extended empirical study on mbedding quality checks directly into data pipelines enables fail-closed governance.",
+    "retrieved_doc_ids": [
+      "10.1145/3637528.3671822",
+      "10.1145/3637528.3671810",
+      "10.1145/3637528.3671821",
+      "10.1145/3637528.3671816"
+    ],
+    "retrieved_contexts": [
+      "Title: Advanced Perspectives on Automated Data Quality Profiling with Great Expectations in CI/CD\n\nSummary: An extended empirical study on mbedding quality checks directly into data pipelines enables fail-closed governance. We show how Great Expectations suites catch schema drifts and null fields before documents reach the embedding model Further analysis on scaling parameters.\n\nAuthors: Son Nguyen, Thuy Doan\n\nCategories: Data Quality, DevOps\n\nPublished: 2026-06-10",
+      "Title: Automated Data Quality Profiling with Great Expectations in CI/CD\n\nSummary: Embedding quality checks directly into data pipelines enables fail-closed governance. We show how Great Expectations suites catch schema drifts and null fields before documents reach the embedding model.\n\nAuthors: Son Nguyen, Thuy Doan\n\nCategories: Data Quality, DevOps\n\nPublished: 2026-06-08",
+      "Title: Advanced Perspectives on Chunking Strategies for Technical Documentation Retrieval\n\nSummary: An extended empirical study on ierarchical and semantic boundary chunking preserves code block contexts and markdown headings. Our benchmark demonstrates superior top-1 recall compared to fixed character length sliding windows Further analysis on scaling parameters.\n\nAuthors: Long Trinh, Ha Chu\n\nCategories: Information Retrieval, Natural Language Processing\n\nPublished: 2026-06-09",
+      "Title: Advanced Perspectives on Freshness SLAs for Real-Time LLM Knowledge Augmentation\n\nSummary: An extended empirical study on e define freshness service-level agreements (SLAs) for temporal document ingestion. By tracking document age and update cadence, our orchestrator dynamically prioritizes recrawling high-churn technical corpora Further analysis on scaling parameters.\n\nAuthors: Bao Do, Linh Ngo\n\nCategories: Data Management, Artificial Intelligence\n\nPublished: 2026-06-04"
+    ],
+    "retrieval_hit": false,
+    "token_f1": 0.0,
+    "judge": {
+      "score": 1,
+      "correct": false,
+      "reasoning": "The model answer describes a specific technical topic (embedding quality checks) rather than identifying the broad research categories (AI, ML) requested by the question. It does not '"
+    }
+  },
+  {
+    "id": "q010",
+    "question_type": "categories",
+    "question": "What are the research categories or domains of the paper titled 'Paper 1'?",
+    "ground_truth": "AI, ML",
+    "ground_truth_doc_ids": [
+      "10.1234/test.1"
+    ],
+    "answer": "An extended empirical study on ierarchical and semantic boundary chunking preserves code block contexts and markdown headings.",
+    "retrieved_doc_ids": [
+      "10.1145/3637528.3671821",
+      "10.1145/3637528.3671809",
+      "10.1145/3637528.3671808",
+      "10.1145/3637528.3671820"
+    ],
+    "retrieved_contexts": [
+      "Title: Advanced Perspectives on Chunking Strategies for Technical Documentation Retrieval\n\nSummary: An extended empirical study on ierarchical and semantic boundary chunking preserves code block contexts and markdown headings. Our benchmark demonstrates superior top-1 recall compared to fixed character length sliding windows Further analysis on scaling parameters.\n\nAuthors: Long Trinh, Ha Chu\n\nCategories: Information Retrieval, Natural Language Processing\n\nPublished: 2026-06-09",
+      "Title: Chunking Strategies for Technical Documentation Retrieval\n\nSummary: Hierarchical and semantic boundary chunking preserves code block contexts and markdown headings. Our benchmark demonstrates superior top-1 recall compared to fixed character length sliding windows.\n\nAuthors: Long Trinh, Ha Chu\n\nCategories: Information Retrieval, Natural Language Processing\n\nPublished: 2026-04-30",
+      "Title: Multi-Agent Consensus for High-Stakes Fact Verification\n\nSummary: A single LLM is susceptible to confirmation bias when evaluating retrieved evidence. We demonstrate a multi-agent debate architecture where specialized verifier agents critique and corroborate citations.\n\nAuthors: Phong Vu, Ngan Hoang\n\nCategories: Multi-Agent Systems, Artificial Intelligence\n\nPublished: 2026-07-19",
+      "Title: Advanced Perspectives on Multi-Agent Consensus for High-Stakes Fact Verification\n\nSummary: An extended empirical study on single LLM is susceptible to confirmation bias when evaluating retrieved evidence. We demonstrate a multi-agent debate architecture where specialized verifier agents critique and corroborate citations Further analysis on scaling parameters.\n\nAuthors: Phong Vu, Ngan Hoang\n\nCategories: Multi-Agent Systems, Artificial Intelligence\n\nPublished: 2026-06-08"
+    ],
+    "retrieval_hit": false,
+    "token_f1": 0.0,
+    "judge": {
+      "score": 1,
+      "correct": false,
+      "reasoning": "The model answer describes a specific research topic (chunking, code blocks) rather than the broad research categories or domains (AI, ML) requested by the question. It does not match,"
+    }
+  }
+]

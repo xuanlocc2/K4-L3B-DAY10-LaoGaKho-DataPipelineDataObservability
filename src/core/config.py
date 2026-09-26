@@ -40,6 +40,10 @@ class Paths:
     repaired_metrics: Path
     repaired_answers: Path
     comparison_report: Path
+    live_recovery_dir: Path
+    live_known_good_fingerprint: Path
+    live_dataset_csv: Path
+    live_dataset_json: Path
 
 
 @dataclass(frozen=True)
@@ -54,6 +58,11 @@ class Settings:
     ollama_base_url: str
     custom_llm_api_key: str | None
     custom_llm_base_url: str | None
+    groq_api_key: str | None
+    groq_base_url: str
+    groq_model: str
+    groq_temperature: float
+    groq_max_tokens: int
     embedding_model: str
     baseline_collection_name: str
     corrupted_collection_name: str
@@ -67,6 +76,7 @@ class Settings:
     refresh_source: bool
     refresh_test_set: bool
     paths: Paths
+    live_recovery_target_file: str | None
 
 
 def load_settings(project_dir: Path | None = None) -> Settings:
@@ -110,11 +120,15 @@ def load_settings(project_dir: Path | None = None) -> Settings:
         repaired_metrics=data_dir / "results" / "repaired_metrics.json",
         repaired_answers=data_dir / "results" / "repaired_answers.json",
         comparison_report=data_dir / "reports" / "corruption_report.md",
+        live_recovery_dir=data_dir / "live" / "recovery",
+        live_known_good_fingerprint=data_dir / "live" / "known_good_fingerprint.json",
+        live_dataset_csv=data_dir / "clean" / "papers_clean.csv",
+        live_dataset_json=data_dir / "clean" / "papers_clean.json",
     )
 
     return Settings(
-        llm_provider=os.getenv("LLM_PROVIDER", "gemini"),
-        model_name=os.getenv("LLM_MODEL", "gemini-2.5-flash"),
+        llm_provider=os.getenv("LLM_PROVIDER", "groq"),
+        model_name=os.getenv("LLM_MODEL", "llama-3.1-8b-instant"),
         google_api_key=os.getenv("GOOGLE_API_KEY"),
         openai_api_key=os.getenv("OPENAI_API_KEY"),
         anthropic_api_key=os.getenv("ANTHROPIC_API_KEY"),
@@ -123,6 +137,11 @@ def load_settings(project_dir: Path | None = None) -> Settings:
         ollama_base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
         custom_llm_api_key=os.getenv("CUSTOM_LLM_API_KEY"),
         custom_llm_base_url=os.getenv("CUSTOM_LLM_BASE_URL"),
+        groq_api_key=os.getenv("GROQ_API_KEY"),
+        groq_base_url=os.getenv("GROQ_BASE_URL", "https://api.groq.com/openai/v1"),
+        groq_model=os.getenv("GROQ_MODEL", "llama-3.1-70b-versatile"),
+        groq_temperature=float(os.getenv("GROQ_TEMPERATURE", "0.1")),
+        groq_max_tokens=int(os.getenv("GROQ_MAX_TOKENS", "2048")),
         embedding_model="sentence-transformers/all-MiniLM-L6-v2",
         baseline_collection_name="papers-baseline",
         corrupted_collection_name="papers-corrupted",
@@ -136,6 +155,7 @@ def load_settings(project_dir: Path | None = None) -> Settings:
         refresh_source=os.getenv("REFRESH_SOURCE", "").lower() in {"1", "true", "yes"},
         refresh_test_set=os.getenv("REFRESH_TEST_SET", "").lower() in {"1", "true", "yes"},
         paths=paths,
+        live_recovery_target_file=os.getenv("LIVE_RECOVERY_TARGET") or None,
     )
 
 
@@ -145,6 +165,8 @@ def normalized_provider(settings: Settings) -> str:
         return "anthropic"
     if provider == "customllm":
         return "custom"
+    if provider in {"groq", "groqapi"}:
+        return "groq"
     return provider
 
 
@@ -166,6 +188,10 @@ def require_llm_credentials(settings: Settings) -> None:
         if settings.openrouter_api_key:
             return
         raise RuntimeError("OPENROUTER_API_KEY is required when LLM_PROVIDER=openrouter.")
+    if provider == "groq":
+        if settings.groq_api_key:
+            return
+        raise RuntimeError("GROQ_API_KEY is required when LLM_PROVIDER=groq.")
     if provider in {"mock", "ollama"}:
         return
     if provider == "custom":
@@ -173,5 +199,5 @@ def require_llm_credentials(settings: Settings) -> None:
             return
         raise RuntimeError("CUSTOM_LLM_BASE_URL is required when LLM_PROVIDER=custom.")
     raise RuntimeError(
-        "Unsupported LLM_PROVIDER. Expected one of: openai, gemini, anthropic, openrouter, ollama, custom, mock."
+        "Unsupported LLM_PROVIDER. Expected one of: openai, gemini, anthropic, openrouter, ollama, groq, custom, mock."
     )

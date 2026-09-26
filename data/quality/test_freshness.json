@@ -1,0 +1,9 @@
+{
+  "latest_published": "2024-01-15",
+  "oldest_published": "2024-01-15",
+  "stale_rows": 2,
+  "total_rows": 10,
+  "stale_ratio": 0.2,
+  "threshold_days": 180,
+  "is_fresh": true
+}

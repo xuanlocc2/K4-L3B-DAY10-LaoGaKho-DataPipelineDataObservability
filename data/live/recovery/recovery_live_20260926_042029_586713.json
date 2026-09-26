@@ -1,0 +1,83 @@
+{
+  "run_id": "live_20260926_042029_586713",
+  "started_at": "2026-09-26T04:20:29.586713+00:00",
+  "completed_at": "2026-09-26T04:20:37.437313+00:00",
+  "status": "success",
+  "detection": {
+    "source_path": "D:\\K4-L3B-DAY10-LaoGaKho-DataPipelineDataObservability\\data\\clean\\papers_clean.json",
+    "records_before": 24,
+    "records_after": 24,
+    "issues_detected": 1,
+    "changed_records": 1,
+    "fingerprint_before": {
+      "row_count": 24,
+      "file_sha256": "968ef52228de2017bd28ba00e7d5c6c83cec0bfce735d1a19432926dff78708e"
+    },
+    "fingerprint_after": {
+      "row_count": 24,
+      "file_sha256": "17f76df45e6cbb8d4bed7f86f90adc4b4c531b96ef4209c0a5ada486997e5569"
+    }
+  },
+  "issues": [
+    {
+      "paper_id": "10.1145/3637528.3671801",
+      "issue_type": "blanked_field",
+      "severity": "high",
+      "fields": [
+        "age_days",
+        "authors_joined",
+        "categories_joined",
+        "summary",
+        "summary_chars",
+        "text_for_embedding"
+      ]
+    }
+  ],
+  "recovery_source": {
+    "type": "raw_snapshot",
+    "path": "D:\\K4-L3B-DAY10-LaoGaKho-DataPipelineDataObservability\\data\\raw\\crossref_records.json",
+    "retrieved_at": "2026-09-26T04:20:29.597705+00:00"
+  },
+  "repair": {
+    "records_restored": 1,
+    "records_modified": 1,
+    "records_removed": 0,
+    "fields_restored": 6
+  },
+  "embedding": {
+    "recomputed": 1,
+    "unchanged": 1,
+    "path": "D:\\K4-L3B-DAY10-LaoGaKho-DataPipelineDataObservability\\data\\embeddings\\papers_embeddings.json"
+  },
+  "index": {
+    "vectors_added": 1,
+    "vectors_updated": 0,
+    "vectors_deleted": 0,
+    "collection": "papers-live",
+    "rebuild_mode": "incremental"
+  },
+  "validation": {
+    "gx_before": {
+      "success": true,
+      "row_count": 0
+    },
+    "gx_after": {
+      "success": true,
+      "row_count": 0
+    },
+    "freshness_before": {
+      "is_fresh": true,
+      "stale_ratio": 0.0
+    },
+    "freshness_after": {
+      "is_fresh": true,
+      "stale_ratio": 0.0
+    },
+    "retrieval_validation": {
+      "status": "PASS",
+      "hit_rate": 1.0,
+      "samples": 1
+    }
+  },
+  "events": []
+}

@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "expectations": [
+    {
+      "expectation": "table_row_count_between",
+      "success": true
+    },
+    {
+      "expectation": "column_not_null_paper_id",
+      "success": true
+    },
+    {
+      "expectation": "column_unique_paper_id",
+      "success": true
+    },
+    {
+      "expectation": "column_not_null_title",
+      "success": true
+    },
+    {
+      "expectation": "column_between_summary_chars",
+      "success": true
+    }
+  ],
+  "statistics": {
+    "row_count": 24,
+    "null_paper_ids": 0,
+    "null_titles": 0,
+    "duplicate_paper_ids": 0,
+    "avg_summary_length": 241.875
+  },
+  "failed_expectations": [],
+  "validation_run_time": 0.05999946594238281,
+  "gx_available": true,
+  "gx_executed": true
+}

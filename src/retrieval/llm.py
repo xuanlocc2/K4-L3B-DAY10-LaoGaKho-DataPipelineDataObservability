@@ -8,9 +8,15 @@ from langchain_openai import ChatOpenAI
 from core.config import Settings, normalized_provider, require_llm_credentials
 
 
-def build_llm(settings: Settings, temperature: float = 0.0):
+def build_llm(settings: Settings, temperature: float | None = None):
     provider = normalized_provider(settings)
     require_llm_credentials(settings)
+
+    if temperature is None:
+        if provider == "groq":
+            temperature = settings.groq_temperature
+        else:
+            temperature = 0.0
 
     if provider == "gemini":
         return ChatGoogleGenerativeAI(
@@ -42,6 +48,18 @@ def build_llm(settings: Settings, temperature: float = 0.0):
             model=settings.model_name,
             base_url=settings.ollama_base_url,
             temperature=temperature,
+        )
+    if provider == "groq":
+        # Groq's Cloudflare ASN block is bypassed with a browser-like User-Agent.
+        # The model is configured via GROQ_MODEL env var; qwen/qwen3.8-27b works
+        # on free-tier keys that lack llama model access.
+        return ChatOpenAI(
+            model=settings.groq_model,
+            api_key=settings.groq_api_key,
+            base_url=settings.groq_base_url,
+            temperature=temperature,
+            max_tokens=settings.groq_max_tokens,
+            model_kwargs={"extra_headers": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}},
         )
     if provider == "custom":
         return ChatOpenAI(

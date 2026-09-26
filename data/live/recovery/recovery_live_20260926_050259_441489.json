@@ -1,0 +1,77 @@
+{
+  "run_id": "live_20260926_050259_441489",
+  "started_at": "2026-09-26T05:02:59.441489+00:00",
+  "completed_at": "2026-09-26T05:03:07.719445+00:00",
+  "status": "partial",
+  "detection": {
+    "source_path": "D:\\K4-L3B-DAY10-LaoGaKho-DataPipelineDataObservability\\data\\clean\\papers_clean.csv",
+    "records_before": 24,
+    "records_after": 23,
+    "issues_detected": 1,
+    "changed_records": 1,
+    "fingerprint_before": {
+      "row_count": 24,
+      "file_sha256": "968ef52228de2017bd28ba00e7d5c6c83cec0bfce735d1a19432926dff78708e"
+    },
+    "fingerprint_after": {
+      "row_count": 23,
+      "file_sha256": "7fb1da15844e7aa4c8c2f59c3c0417d401aeb022c8120e728e741935fd5023cb"
+    }
+  },
+  "issues": [
+    {
+      "paper_id": "10.1145/3637528.3671801",
+      "issue_type": "missing_record",
+      "severity": "high",
+      "change_type": "removed",
+      "fields": []
+    }
+  ],
+  "recovery_source": {
+    "type": "raw_snapshot",
+    "path": "D:\\K4-L3B-DAY10-LaoGaKho-DataPipelineDataObservability\\data\\raw\\crossref_records.json",
+    "retrieved_at": "2026-09-26T05:02:59.447485+00:00"
+  },
+  "repair": {
+    "records_restored": 1,
+    "records_modified": 1,
+    "records_removed": 0,
+    "fields_restored": 0
+  },
+  "embedding": {
+    "recomputed": 1,
+    "unchanged": 1,
+    "path": "D:\\K4-L3B-DAY10-LaoGaKho-DataPipelineDataObservability\\data\\embeddings\\papers_embeddings.json"
+  },
+  "index": {
+    "vectors_added": 24,
+    "vectors_updated": 0,
+    "vectors_deleted": 0,
+    "collection": "papers-live",
+    "rebuild_mode": "full_rebuild"
+  },
+  "validation": {
+    "gx_before": {
+      "success": true,
+      "row_count": 0
+    },
+    "gx_after": {
+      "success": true,
+      "row_count": 0
+    },
+    "freshness_before": {
+      "is_fresh": true,
+      "stale_ratio": 0.0
+    },
+    "freshness_after": {
+      "is_fresh": true,
+      "stale_ratio": 0.0
+    },
+    "retrieval_validation": {
+      "status": "PASS",
+      "hit_rate": 1.0,
+      "samples": 24
+    }
+  },
+  "events": []
+}

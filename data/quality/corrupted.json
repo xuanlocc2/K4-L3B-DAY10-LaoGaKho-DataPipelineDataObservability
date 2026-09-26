@@ -1,0 +1,21 @@
+{
+  "success": false,
+  "expectations": [
+    {
+      "expectation": "gx_execution",
+      "success": false,
+      "error": "'EphemeralDataContext' object has no attribute 'sources'"
+    }
+  ],
+  "statistics": {
+    "row_count": 23,
+    "null_paper_ids": 0,
+    "null_titles": 0,
+    "duplicate_paper_ids": 0,
+    "avg_summary_length": 223.8695652173913
+  },
+  "failed_expectations": [],
+  "validation_run_time": 1.7202091217041016,
+  "gx_available": true,
+  "gx_executed": true
+}

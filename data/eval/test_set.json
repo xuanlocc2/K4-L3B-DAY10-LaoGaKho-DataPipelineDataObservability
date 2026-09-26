@@ -1,0 +1,92 @@
+[
+  {
+    "id": "q001",
+    "question_type": "summary",
+    "question": "What is the main contribution or focus of the paper titled 'Paper 0'?",
+    "ground_truth": "Summary 0Summary 0Summary 0Summary 0Summary 0",
+    "ground_truth_doc_ids": [
+      "10.1234/test.0"
+    ]
+  },
+  {
+    "id": "q002",
+    "question_type": "summary",
+    "question": "What is the main contribution or focus of the paper titled 'Paper 1'?",
+    "ground_truth": "Summary 1Summary 1Summary 1Summary 1Summary 1",
+    "ground_truth_doc_ids": [
+      "10.1234/test.1"
+    ]
+  },
+  {
+    "id": "q003",
+    "question_type": "summary",
+    "question": "What is the main contribution or focus of the paper titled 'Paper 2'?",
+    "ground_truth": "Summary 2Summary 2Summary 2Summary 2Summary 2",
+    "ground_truth_doc_ids": [
+      "10.1234/test.2"
+    ]
+  },
+  {
+    "id": "q004",
+    "question_type": "authors",
+    "question": "Who are the authors of the paper titled 'Paper 0'?",
+    "ground_truth": "Author A, Author B",
+    "ground_truth_doc_ids": [
+      "10.1234/test.0"
+    ]
+  },
+  {
+    "id": "q005",
+    "question_type": "authors",
+    "question": "Who are the authors of the paper titled 'Paper 1'?",
+    "ground_truth": "Author A, Author B",
+    "ground_truth_doc_ids": [
+      "10.1234/test.1"
+    ]
+  },
+  {
+    "id": "q006",
+    "question_type": "authors",
+    "question": "Who are the authors of the paper titled 'Paper 2'?",
+    "ground_truth": "Author A, Author B",
+    "ground_truth_doc_ids": [
+      "10.1234/test.2"
+    ]
+  },
+  {
+    "id": "q007",
+    "question_type": "date",
+    "question": "When was the paper titled 'Paper 0' published?",
+    "ground_truth": "2024-01-15",
+    "ground_truth_doc_ids": [
+      "10.1234/test.0"
+    ]
+  },
+  {
+    "id": "q008",
+    "question_type": "date",
+    "question": "When was the paper titled 'Paper 1' published?",
+    "ground_truth": "2024-01-15",
+    "ground_truth_doc_ids": [
+      "10.1234/test.1"
+    ]
+  },
+  {
+    "id": "q009",
+    "question_type": "categories",
+    "question": "What are the research categories or domains of the paper titled 'Paper 0'?",
+    "ground_truth": "AI, ML",
+    "ground_truth_doc_ids": [
+      "10.1234/test.0"
+    ]
+  },
+  {
+    "id": "q010",
+    "question_type": "categories",
+    "question": "What are the research categories or domains of the paper titled 'Paper 1'?",
+    "ground_truth": "AI, ML",
+    "ground_truth_doc_ids": [
+      "10.1234/test.1"
+    ]
+  }
+]

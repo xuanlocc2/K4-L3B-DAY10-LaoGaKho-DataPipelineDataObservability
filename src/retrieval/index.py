@@ -66,12 +66,25 @@ class LocalEmbeddingIndex:
         return documents
 
     @staticmethod
-    def _derive_collection_name(settings: Settings, embeddings_output_path: Path | None) -> str:
+    def _derive_collection_name(settings: Settings, embeddings_output_path: Path | None, collection_name_hint: str | None = None) -> str:
+        """Derive collection name from embeddings output path or explicit hint.
+
+        The hint (e.g. 'papers-live') takes priority. Otherwise falls back
+        to path-based mapping:
+          - data/embeddings/papers_embeddings.json   → papers-live   (authoritative)
+          - data/embeddings/papers_embeddings_corrupted.json → papers-corrupted
+          - data/embeddings/papers_embeddings_repaired.json   → papers-repaired
+        """
+        if collection_name_hint:
+            return collection_name_hint
+
         if embeddings_output_path is None:
             return settings.baseline_collection_name
 
         name_map = {
-            settings.paths.embeddings_json.resolve(): settings.baseline_collection_name,
+            # Authoritative live collection (produced by phase1 / live pipeline)
+            settings.paths.embeddings_json.resolve(): "papers-live",
+            # Named collections for corruption flow
             settings.paths.corrupted_embeddings_json.resolve(): settings.corrupted_collection_name,
             settings.paths.repaired_embeddings_json.resolve(): settings.repaired_collection_name,
         }
@@ -86,8 +99,10 @@ class LocalEmbeddingIndex:
         df: pd.DataFrame,
         settings: Settings,
         embeddings_output_path: Path | None = None,
+        collection_name: str | None = None,
     ) -> "LocalEmbeddingIndex":
-        collection_name = cls._derive_collection_name(settings, embeddings_output_path)
+        derived_name = cls._derive_collection_name(settings, embeddings_output_path)
+        active_name = collection_name or derived_name
         documents = cls._build_documents(df)
         persist_path = settings.paths.chroma_dir
         persist_path.mkdir(parents=True, exist_ok=True)
@@ -95,12 +110,12 @@ class LocalEmbeddingIndex:
         embedding_model = MiniLMEmbeddings(settings.embedding_model)
         client = chromadb.PersistentClient(path=str(persist_path))
         try:
-            client.delete_collection(name=collection_name)
+            client.delete_collection(name=active_name)
         except Exception:
             pass
         collection = client.create_collection(
-            name=collection_name,
-            configuration={"hnsw": {"space": "cosine"}},
+            name=active_name,
+            metadata={"hnsw:space": "cosine"},
         )
         embeddings = embedding_model.embed_documents([document["content"] for document in documents])
         collection.add(
@@ -117,13 +132,13 @@ class LocalEmbeddingIndex:
                 "backend": "chroma",
                 "embedding_model": settings.embedding_model,
                 "persist_path": str(persist_path),
-                "collection_name": collection_name,
+                "collection_name": active_name,
                 "documents": documents,
             },
         )
         return cls(
             settings=settings,
-            collection_name=collection_name,
+            collection_name=active_name,
             documents=documents,
             persist_path=persist_path,
         )
@@ -172,3 +187,104 @@ class LocalEmbeddingIndex:
         if needle in self.documents_by_title:
             return self.documents_by_title[needle]
         return None
+
+
+def upsert_documents(
+    df: pd.DataFrame,
+    settings: Settings,
+    collection_name: str,
+    embeddings_output_path: Path | None = None,
+) -> LocalEmbeddingIndex:
+    """Upsert documents into an existing Chroma collection without full rebuild.
+    
+    Adds NEW and UPDATED records only; does NOT re-embed UNCHANGED records.
+    Persists manifest to track what has been indexed.
+    """
+    import chromadb
+    
+    persist_path = settings.paths.chroma_dir
+    persist_path.mkdir(parents=True, exist_ok=True)
+    
+    embedding_model = MiniLMEmbeddings(settings.embedding_model)
+    client = chromadb.PersistentClient(path=str(persist_path))
+    
+    try:
+        collection = client.get_collection(name=collection_name)
+    except Exception:
+        collection = client.create_collection(
+            name=collection_name,
+            metadata={"hnsw:space": "cosine"},
+        )
+    
+    manifest_path = embeddings_output_path or (persist_path / f"{collection_name}_manifest.json")
+    
+    try:
+        existing_manifest = read_json(manifest_path)
+        existing_ids = set(existing_manifest.get("indexed_paper_ids", []))
+    except Exception:
+        existing_ids = set()
+    
+    records = df.to_dict(orient="records")
+    new_documents = []
+    new_embeddings = []
+    new_ids = []
+    new_metadatas = []
+    
+    for index, row in enumerate(records):
+        paper_id = str(row["paper_id"])
+        if paper_id in existing_ids:
+            continue
+        
+        content = row.get("text_for_embedding", "")
+        embedding = embedding_model.embed_documents([content])[0]
+        
+        record_id = f"{paper_id}::{index}"
+        
+        new_documents.append({
+            "record_id": record_id,
+            "paper_id": paper_id,
+            "title": row.get("title", ""),
+            "content": content,
+            "metadata": {
+                "paper_id": paper_id,
+                "title": row.get("title", ""),
+                "published": row.get("published", ""),
+                "authors_joined": row.get("authors_joined", ""),
+                "categories_joined": row.get("categories_joined", ""),
+                "summary": row.get("summary", ""),
+                "abs_url": row.get("abs_url", ""),
+                "pdf_url": row.get("pdf_url", ""),
+            },
+        })
+        new_ids.append(record_id)
+        new_embeddings.append(embedding)
+        new_metadatas.append(new_documents[-1]["metadata"])
+        existing_ids.add(paper_id)
+    
+    if new_ids:
+        collection.add(
+            ids=new_ids,
+            embeddings=new_embeddings,
+            documents=[doc["content"] for doc in new_documents],
+            metadatas=new_metadatas,
+        )
+    
+    write_json(
+        manifest_path,
+        {
+            "backend": "chroma",
+            "embedding_model": settings.embedding_model,
+            "persist_path": str(persist_path),
+            "collection_name": collection_name,
+            "indexed_paper_ids": list(existing_ids),
+            "last_updated": str(settings.paths.project_dir),
+        },
+    )
+    
+    all_docs = [doc["metadata"] for doc in new_documents]
+    return LocalEmbeddingIndex(
+        settings=settings,
+        collection_name=collection_name,
+        documents=new_documents,
+        persist_path=persist_path,
+    )
