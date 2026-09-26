@@ -30,3 +30,14 @@
 2. Tích hợp **Freshness Check** (`age_days`) vào Quality Gate
 3. Chạy **Baseline → Corruption → Repair** → xuất bảng đối chiếu 3 trạng thái
 4. **Live Demo** trên bảng & nộp link repo lên VLearn LMS
+
+## Demo Dashboard
+
+Start the local observability dashboard after syncing the project dependencies:
+
+```powershell
+uv sync
+uv run streamlit run dashboard.py
+```
+
+The dashboard reads pipeline artifacts from `data/` and provides controls to run the baseline and corruption/repair flows.

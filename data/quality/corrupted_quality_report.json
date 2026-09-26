@@ -1,0 +1,241 @@
+{
+  "stage": "corrupted",
+  "success": false,
+  "expectations_success": false,
+  "freshness": {
+    "threshold_days": 180,
+    "max_stale_ratio": 0.25,
+    "stale_rows": 4,
+    "invalid_age_rows": 0,
+    "total_rows": 21,
+    "stale_ratio": 0.19047619047619047,
+    "is_fresh": true
+  },
+  "great_expectations": {
+    "success": false,
+    "results": [
+      {
+        "success": true,
+        "expectation_config": {
+          "type": "expect_table_row_count_to_be_between",
+          "kwargs": {
+            "batch_id": "papers_source-papers_asset",
+            "min_value": 5,
+            "max_value": 5000
+          },
+          "meta": {},
+          "severity": "critical"
+        },
+        "result": {
+          "observed_value": 21
+        },
+        "meta": {},
+        "exception_info": {
+          "raised_exception": false,
+          "exception_traceback": null,
+          "exception_message": null
+        }
+      },
+      {
+        "success": true,
+        "expectation_config": {
+          "type": "expect_column_values_to_not_be_null",
+          "kwargs": {
+            "batch_id": "papers_source-papers_asset",
+            "column": "paper_id"
+          },
+          "meta": {},
+          "severity": "critical"
+        },
+        "result": {
+          "element_count": 21,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "partial_unexpected_list": [],
+          "partial_unexpected_counts": [],
+          "partial_unexpected_index_list": []
+        },
+        "meta": {},
+        "exception_info": {
+          "raised_exception": false,
+          "exception_traceback": null,
+          "exception_message": null
+        }
+      },
+      {
+        "success": false,
+        "expectation_config": {
+          "type": "expect_column_values_to_be_unique",
+          "kwargs": {
+            "batch_id": "papers_source-papers_asset",
+            "column": "paper_id"
+          },
+          "meta": {},
+          "severity": "critical"
+        },
+        "result": {
+          "element_count": 21,
+          "unexpected_count": 4,
+          "unexpected_percent": 19.047619047619047,
+          "partial_unexpected_list": [
+            "10.1145/3637528.3671805",
+            "10.1145/3637528.3671803",
+            "10.1145/3637528.3671805",
+            "10.1145/3637528.3671803"
+          ],
+          "missing_count": 0,
+          "missing_percent": 0.0,
+          "unexpected_percent_total": 19.047619047619047,
+          "unexpected_percent_nonmissing": 19.047619047619047,
+          "partial_unexpected_counts": [
+            {
+              "value": "10.1145/3637528.3671803",
+              "count": 2
+            },
+            {
+              "value": "10.1145/3637528.3671805",
+              "count": 2
+            }
+          ],
+          "partial_unexpected_index_list": [
+            0,
+            1,
+            19,
+            20
+          ]
+        },
+        "meta": {},
+        "exception_info": {
+          "raised_exception": false,
+          "exception_traceback": null,
+          "exception_message": null
+        }
+      },
+      {
+        "success": true,
+        "expectation_config": {
+          "type": "expect_column_values_to_not_be_null",
+          "kwargs": {
+            "batch_id": "papers_source-papers_asset",
+            "column": "title"
+          },
+          "meta": {},
+          "severity": "critical"
+        },
+        "result": {
+          "element_count": 21,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "partial_unexpected_list": [],
+          "partial_unexpected_counts": [],
+          "partial_unexpected_index_list": []
+        },
+        "meta": {},
+        "exception_info": {
+          "raised_exception": false,
+          "exception_traceback": null,
+          "exception_message": null
+        }
+      },
+      {
+        "success": true,
+        "expectation_config": {
+          "type": "expect_column_values_to_not_be_null",
+          "kwargs": {
+            "batch_id": "papers_source-papers_asset",
+            "column": "text_for_embedding"
+          },
+          "meta": {},
+          "severity": "critical"
+        },
+        "result": {
+          "element_count": 21,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "partial_unexpected_list": [],
+          "partial_unexpected_counts": [],
+          "partial_unexpected_index_list": []
+        },
+        "meta": {},
+        "exception_info": {
+          "raised_exception": false,
+          "exception_traceback": null,
+          "exception_message": null
+        }
+      },
+      {
+        "success": false,
+        "expectation_config": {
+          "type": "expect_column_value_lengths_to_be_between",
+          "kwargs": {
+            "batch_id": "papers_source-papers_asset",
+            "column": "summary",
+            "min_value": 30
+          },
+          "meta": {},
+          "severity": "critical"
+        },
+        "result": {
+          "element_count": 21,
+          "unexpected_count": 4,
+          "unexpected_percent": 19.047619047619047,
+          "partial_unexpected_list": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "missing_count": 0,
+          "missing_percent": 0.0,
+          "unexpected_percent_total": 19.047619047619047,
+          "unexpected_percent_nonmissing": 19.047619047619047,
+          "partial_unexpected_counts": [
+            {
+              "value": "",
+              "count": 4
+            }
+          ],
+          "partial_unexpected_index_list": [
+            0,
+            1,
+            19,
+            20
+          ]
+        },
+        "meta": {},
+        "exception_info": {
+          "raised_exception": false,
+          "exception_traceback": null,
+          "exception_message": null
+        }
+      }
+    ],
+    "suite_name": "corrupted_data_quality",
+    "suite_parameters": {},
+    "statistics": {
+      "evaluated_expectations": 6,
+      "successful_expectations": 4,
+      "unsuccessful_expectations": 2,
+      "success_percent": 66.66666666666666
+    },
+    "meta": {
+      "great_expectations_version": "1.23.2",
+      "batch_spec": {
+        "batch_data": "PandasDataFrame"
+      },
+      "batch_markers": {
+        "ge_load_time": "20260926T040728.122689Z",
+        "pandas_data_fingerprint": "b9f95a0473d9a1ca5802077f06e24175"
+      },
+      "active_batch_definition": {
+        "datasource_name": "papers_source",
+        "data_connector_name": "fluent",
+        "data_asset_name": "papers_asset",
+        "batch_identifiers": {
+          "dataframe": "<DATAFRAME>"
+        }
+      }
+    },
+    "id": null
+  }
+}

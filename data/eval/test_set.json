@@ -1,0 +1,92 @@
+[
+  {
+    "id": "eval_001",
+    "question_type": "summary",
+    "question": "What is the summary of the paper 'Evaluating Retrieval Precision with Token F1 and LLM Judges'?",
+    "ground_truth": "Evaluating open-domain QA requires robust metrics.",
+    "ground_truth_doc_ids": [
+      "10.1145/3637528.3671805"
+    ]
+  },
+  {
+    "id": "eval_002",
+    "question_type": "summary",
+    "question": "What is the summary of the paper 'Mitigating Ghost Vectors in Dense Retrieval via Idempotent Indexing'?",
+    "ground_truth": "Soft-deletions in vector databases leave orphaned embeddings that lead to hallucinations.",
+    "ground_truth_doc_ids": [
+      "10.1145/3637528.3671803"
+    ]
+  },
+  {
+    "id": "eval_003",
+    "question_type": "summary",
+    "question": "What is the summary of the paper 'Chunking Strategies for Technical Documentation Retrieval'?",
+    "ground_truth": "Hierarchical and semantic boundary chunking preserves code block contexts and markdown headings.",
+    "ground_truth_doc_ids": [
+      "10.1145/3637528.3671809"
+    ]
+  },
+  {
+    "id": "eval_004",
+    "question_type": "authors",
+    "question": "Who authored the paper 'Semantic Layer Integration for Agentic Text-to-SQL Pipelines'?",
+    "ground_truth": "Huy Dinh, Trang Vo",
+    "ground_truth_doc_ids": [
+      "10.1145/3637528.3671806"
+    ]
+  },
+  {
+    "id": "eval_005",
+    "question_type": "authors",
+    "question": "Who authored the paper 'Hybrid Search Architectures: Combining BM25 with Dense Representations'?",
+    "ground_truth": "Dat Tran, Lan Pham",
+    "ground_truth_doc_ids": [
+      "10.1145/3637528.3671811"
+    ]
+  },
+  {
+    "id": "eval_006",
+    "question_type": "authors",
+    "question": "Who authored the paper 'Agentic Retrieval-Augmented Generation for Knowledge-Intensive Tasks'?",
+    "ground_truth": "Minh Nguyen, Hoang Le",
+    "ground_truth_doc_ids": [
+      "10.1145/3637528.3671801"
+    ]
+  },
+  {
+    "id": "eval_007",
+    "question_type": "date",
+    "question": "When was the paper 'Advanced Perspectives on Agentic Retrieval-Augmented Generation for Knowledge-Intensive Tasks' published?",
+    "ground_truth": "2026-06-01",
+    "ground_truth_doc_ids": [
+      "10.1145/3637528.3671813"
+    ]
+  },
+  {
+    "id": "eval_008",
+    "question_type": "date",
+    "question": "When was the paper 'Advanced Perspectives on Data Observability and Quality Gates for Production RAG Systems' published?",
+    "ground_truth": "2026-06-02",
+    "ground_truth_doc_ids": [
+      "10.1145/3637528.3671814"
+    ]
+  },
+  {
+    "id": "eval_009",
+    "question_type": "categories",
+    "question": "What categories describe the paper 'Advanced Perspectives on Mitigating Ghost Vectors in Dense Retrieval via Idempotent Indexing'?",
+    "ground_truth": "Databases, Information Systems",
+    "ground_truth_doc_ids": [
+      "10.1145/3637528.3671815"
+    ]
+  },
+  {
+    "id": "eval_010",
+    "question_type": "categories",
+    "question": "What categories describe the paper 'Advanced Perspectives on Freshness SLAs for Real-Time LLM Knowledge Augmentation'?",
+    "ground_truth": "Data Management, Artificial Intelligence",
+    "ground_truth_doc_ids": [
+      "10.1145/3637528.3671816"
+    ]
+  }
+]
