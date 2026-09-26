@@ -25,6 +25,13 @@ def write_csv(df, path: Path) -> None:
     df.to_csv(path, index=False)
 
 
+def write_dataframe_json(df, path: Path) -> None:
+    """Persist dataframe records as readable, UTF-8 JSON."""
+    ensure_parent(path)
+    payload = df.to_json(orient="records", date_format="iso", force_ascii=False, indent=2)
+    path.write_text(payload + "\n", encoding="utf-8")
+
+
 def write_text(path: Path, text: str) -> None:
     ensure_parent(path)
     path.write_text(text, encoding="utf-8")
